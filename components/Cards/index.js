@@ -32,7 +32,21 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
      console.log('data', response.data);
     //  tabs.appendChild(createTab(response.data))
 
-    //********ADD .MAP FUNCTION HERE */
+    const api1 = response.data
+     console.log(response);
+    //  console.log(api);
+    //  console.log(api.topics);
+    //object = built in class, has a bunch of different functions that you use with objects. Values is a method that pulls all values from an object for a specific array
+    const articlesArray = Object.values(response.data.articles);
+
+      articlesArray.forEach(article => {
+      // cardContainer.appendChild(createArticles(article));
+      article.forEach(content => {
+        console.log(content);
+       cardContainer.appendChild(createArticles(content));
+      })
+      
+   });
    })
   
   .catch(error => {
@@ -70,8 +84,8 @@ function createArticles(object) {
     //setup structure of elements, put together by appending
     card.appendChild(cardHeadline)
     card.appendChild(cardAuthor)
-    imageContainer.appendChild(imageContainer)
-    cardAuthor.appendChild(cardImage)
+    imageContainer.appendChild(cardImage)
+    cardAuthor.appendChild(imageContainer)
     cardAuthor.appendChild(byAuthor)
 
     return card;
