@@ -8,9 +8,62 @@
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
 
-// const tabs = document.querySelector('.tab')
+const tab = document.querySelector('.tabs');
+const topics = document.querySelector('.topics');
 
-// // const tabsArray = []
+   axios.get('https://lambda-times-backend.herokuapp.com/topics')
+   .then(response => {
+     //Handles success, successfuly got tab data from server!!!!
+     console.log('data', response.data);
+    return topics.map(atopic => {
+     return topics.appendChild(createTab(atopic));
+   });
+  })
+  
+  .catch(error => {
+   //handles failure//
+   console.log('ERROR:', error)
+  })
+
+function createTab(atopic) {
+    //create elements
+    // const tabs = document.createElement('div');
+    const tab = document.createElement('div');
+    // const tabsTopics = document.createElement('div');
+    // const tabsTitle = document.createElement('span');
+    
+    //set class names 
+    // tabs.classList.add('tabs');
+    tab.classlist.add("tab");
+    // tabsTopics.classlist.add('topics');
+    // tabsTitle.classlist.add('title');
+
+    // set text content
+    tab.textContent = atopic;
+    // tabsTitle.textContent = 'Trending Topics'
+
+
+    //setup structure of elements, put together by appending
+    // tabs.appendChild(tab);
+    // tab.appendChild(tabsTopics);
+    // tab.appendChild(tabsTitle);
+
+
+return tab
+}
+
+
+
+//TABS HTML//
+// <!-- TABS COMPONENT, PLACE TABS HERE-->
+// <div class="tabs">
+//   <div class="topics">
+//     <span class="title">TRENDING TOPICS:</span>
+//   </div>
+// </div>
+
+// // OLD PROJECT NOTES
+//  const tabsArray = []
 
 // // tabsArray.forEach(users => {
 // //     axios.get('https://lambda-times-backend.herokuapp.com/topics')
@@ -27,15 +80,3 @@
 // //    })
   
 
-
-//    axios.get('https://lambda-times-backend.herokuapp.com/topics')
-//    .then(response => {
-//      //Handles success, here's where we get the results from the server
-//      console.log('data', response.data);
-//      tabs.appendChild(createTab(response.data))
-//    })
-  
-//   .catch(error => {
-//    //handles failure//
-//    console.log('ERROR:', error)
-//   })
