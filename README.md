@@ -38,7 +38,7 @@ Edit this document to include your answers after each question. Make sure to lea
 
 5. What is a component?
 
-### Git Set up
+### Git Set up **
 
 * [ ] Fork the project into your GitHub user account
 * [ ] Clone the forked project into a directory on your machine
